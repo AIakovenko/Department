@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>dep</short-name>
+  <uri>/WEB-INF/departmentTags</uri>
+  <!-- A validator verifies that the tags are used correctly at JSP
+          translation time. Validator entries look like this: 
+       <validator>
+           <validator-class>com.mycompany.TagLibValidator</validator-class>
+           <init-param>
+              <param-name>parameter</param-name>
+              <param-value>value</param-value>
+           </init-param>
+       </validator>
+    -->
+  <!-- A tag library can register Servlet Context event listeners in
+         case it needs to react to such events. Listener entries look
+         like this: 
+      <listener>
+          <listener-class>com.mycompany.TagLibListener</listener-class> 
+      </listener>
+    -->
+  <tag>
+      <name>error</name>
+      <tag-class>com.bionic.iakovenko.department.tags.ErrorTag</tag-class>
+      <body-content>empty</body-content> 
+      <attribute>
+          <name>message</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+          <type>java.util.String</type>
+      </attribute>
+  </tag>
+  
+  <tag>
+      <name>req_table</name>
+      <tag-class>com.bionic.iakovenko.department.tags.RequestTableTag</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+          <name>name</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+          <type>java.util.String</type>
+      </attribute>
+      <attribute>
+          <name>select</name>
+          <required>true</required>
+          <type>java.util.Boolean</type>
+      </attribute>    
+  </tag>
+  <tag>
+      <name>form_submit</name>
+      <tag-class>com.bionic.iakovenko.department.tags.FormSubmitTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+          <name>commandValue</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+          <name>buttonName</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+</taglib>

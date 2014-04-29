@@ -1,0 +1,39 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<fmt:setLocale value="${locale}"/>
+<fmt:setBundle basename="com.bionic.iakovenko.department.locales.message"/>
+<body>
+    <table class="language" align="right">
+        <tr>
+            <td>
+                <form method="POST" action="department">
+                    <input type="hidden" name="command" value="${thisPage}"/>
+                    <input type="hidden" name="locale" value="en_GB"/>
+                    <input type="image" src="res/flag_great_britain.png" alt="Submit Form"/>
+                </form>
+            </td>
+            <td>
+                <form method="POST" action="department">
+                    <input type="hidden" name="command" value="${thisPage}"/>
+                    <input type="hidden" name="locale" value="ru_RU"/>
+                    <input type="image" src="res/flag_russia.png" alt="Submit Form" />
+                </form>
+            </td>
+            <td>
+                <form method="POST" action="department">
+                    <input type="hidden" name="command" value="${thisPage}"/>
+                    <input type="hidden" name="locale" value="ua_UA"/>
+                    <input type="image" src="res/flag_ukraine.png" alt="Submit Form" />
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <fmt:message key="${welcome}" var="great"/>
+    <h3><c:out value="${great}"/></h3><br/>
+
+    <hr class="divideLine"/>
+</body>

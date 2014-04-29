@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : choiseUndoneRequest
+    Created on : Apr 16, 2014, 8:34:04 PM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${disp.login} - Choice undone request"/></title>    
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/dispatcherHeader.jspf"/>
+
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>                   
+            </div>
+
+            <div id="undoneRequestTable">
+                <fmt:message key="BUTTON_OK" var="ok"/>
+                <d:form_submit commandValue="formingGroup" buttonName="${ok}">
+                    <table name="tableRequests" class="dataTable" >
+                        <th class="dataTable"></th>
+                            <fmt:message key="TABLE_NUMBER" var="number"/>
+                        <th class="dataTable"><c:out value="${number}"/></th>
+                            <fmt:message key="TABLE_CLIENT" var="client"/>
+                        <th class="dataTable"><c:out value="${client}"/></th>
+                            <fmt:message key="TABLE_ADDRESS" var="address"/>
+                        <th class="dataTable"><c:out value="${address}"/></th>
+                            <fmt:message key="TABLE_WORK" var="work"/>
+                        <th class="dataTable"><c:out value="${work}"/></th>
+                            <fmt:message key="TABLE_DATE" var="date"/>
+                        <th class="dataTable"><c:out value="${date}"/></th>
+                            <fmt:message key="TABLE_DISPATCHER" var="dispatcher"/>
+                        <th class="dataTable"><c:out value="${dispatcher}"/></th>
+                            <d:req_table name="dataTable" select="true"/>
+                    </table>
+                </d:form_submit>     
+            </div>
+        </body>
+    </html>
+
+</jsp:root>

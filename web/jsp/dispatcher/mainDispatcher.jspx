@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : mainDispatcher
+    Created on : Apr 11, 2014, 10:09:25 AM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags.tld"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${disp.login}"/></title>    
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/dispatcherHeader.jspf"/>
+           
+            <br/>
+            <div class="menuButtons">
+                <fmt:message key="BUTTON_PEPARE_REQUEST" var="prepareRequest"/>
+                <form name="prepareForm" method="POST" action="department">               
+                    <input type="hidden" name="command" value="choiceUndoneRequest"/>
+                    <input type="submit" style="width: 150px" value="${prepareRequest}"/>    
+                </form>
+                <fmt:message key="BUTTON_FIND_REQUEST" var="findRequest"/>
+                <form name="searchForm" method="POST" action="department">               
+                    <input type="hidden" name="command" value="searchRequest"/>
+                    <input type="hidden" name="newSearch" value="true"/>
+                    <input type="submit" style="width: 150px" value="${findRequest}"/>    
+                </form>
+            </div>
+        </body>
+    </html>
+
+
+</jsp:root>

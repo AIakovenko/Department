@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : searchRequest
+    Created on : Apr 19, 2014, 9:45:46 PM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${disp.login} - Search of the request"/></title>
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/dispatcherHeader.jspf"/>
+
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+
+            <div id="searchRequestByID">
+                <fmt:message key="BUTTON_OK" var="Ok"/>
+                <d:form_submit commandValue="searchRequest" buttonName="${Ok}">
+                    <input type="hidden" name="searchBy" value="id"/>
+                    <fmt:message key="MESSAGE_REQUEST_NUMBER" var="requestNumber"/>
+                    <c:out value="${requestNumber}"/>
+                    <br/>
+                    <input type="text" name="searchingReqID"/>
+                    <br/>
+                    <br/>
+                </d:form_submit>
+            </div>
+            <div id="searchRequestByDate">
+                <fmt:message key="BUTTON_OK" var="Ok"/>
+                <d:form_submit commandValue="searchRequest" buttonName="${Ok}">
+                    <input type="hidden" name="searchBy" value="date"/>
+
+                    <fmt:message key="MESSAGE_REQUEST_DATE" var="requestDate"/>
+                    <c:out value="${requestDate}"/>
+                    <br/>
+                    <input type="date" name="searchingDate"/><br/>
+                    <input type="radio" name="whatDate" value="before"/>
+                    <fmt:message key="MESSAGE_BEFORE" var="requestBefore"/>
+                    <c:out value="${requestBefore}"/>
+                    <input type="radio" name="whatDate" value="equal" checked="true"/>
+                    <fmt:message key="MESSAGE_EQUAL" var="requestEqual"/>
+                    <c:out value="${requestEqual}"/>
+                    <input type="radio" name="whatDate" value="after"/>
+                    <fmt:message key="MESSAGE_AFTER" var="requestAfter"/>
+                    <c:out value="${requestAfter}"/><br/>
+                </d:form_submit>
+            </div>
+            <c:if test="${searchBy != null}">
+                <div id="searchFormInfrmation">
+                    <fmt:message key="BUTTON_DETAILS" var="details"/>
+                    <d:form_submit commandValue="showDetails" buttonName="${details}">
+
+                        <table name="tableRequests" class="dataTable" >
+                            <th class="dataTable"></th>
+                                <fmt:message key="TABLE_NUMBER" var="tablrNumber"/>
+                            <th class="dataTable"><c:out value="${tablrNumber}"/></th>
+                                <fmt:message key="TABLE_CLIENT" var="tableClient"/>
+                            <th class="dataTable"><c:out value="${tableClient}"/></th>
+                                <fmt:message key="TABLE_ADDRESS" var="tableAddress"/>
+                            <th class="dataTable"><c:out value="${tableAddress}"/></th>
+                                <fmt:message key="TABLE_WORK" var="tableWork"/>
+                            <th class="dataTable"><c:out value="${tableWork}"/></th>
+                                <fmt:message key="TABLE_DATE" var="tableDate"/>
+                            <th class="dataTable"><c:out value="${tableDate}"/></th>
+                                <fmt:message key="TABLE_DISPATCHER" var="tableDispatcher"/>
+                            <th class="dataTable"><c:out value="${tableDispatcher}"/></th>
+                                <d:req_table name="dataTable" select="true"/>
+                        </table>
+                    </d:form_submit>
+                </div>
+            </c:if>
+
+
+        </body>
+    </html>
+
+
+
+</jsp:root>

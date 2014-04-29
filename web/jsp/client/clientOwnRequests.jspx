@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : clientOwnRequests
+    Created on : Apr 25, 2014, 6:10:22 PM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${client.login} Requests List"/></title>
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/clientHeader.jspf" /> 
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+            <div id="showOwnRequests">
+                <table class="dataTable">
+                    <fmt:message key="TABLE_NUMBER" var="reqNumber"/>
+                    <th class="dataTable"><c:out value="${reqNumber}"/></th>
+                        <fmt:message key="TABLE_ADDRESS" var="reqAddress"/>
+                    <th class="dataTable"><c:out value="${reqAddress}"/></th>
+                        <fmt:message key="TABLE_WORK" var="reqWork"/>
+                    <th class="dataTable"><c:out value="${reqWork}"/></th>
+                        <fmt:message key="TABLE_DATE" var="reqDate"/>
+                    <th class="dataTable"><c:out value="${reqDate}"/></th>
+                        <fmt:message key="TABLE_DISPATCHER" var="reqDispatcher"/>
+                    <th class="dataTable"><c:out value="${reqDispatcher}"/></th>
+
+                    <c:forEach var="request" items="${clientRequestList}">
+                        <tr>
+                            <td class="dataTable">
+                                <c:out value="${request.requestID}"/>
+                            </td>
+                            <td class="dataTable">
+                                <c:forEach var="flat" items="${clientFlatList}">
+                                    <c:if test="${request.flatID == flat.flatID}">
+                                        <c:out value="${flat.address}, ${flat.building} кв.${flat.apartment}"/>
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                            <td class="dataTable">
+                                <c:forEach var="works" items="${clientWorksList}">
+                                    <c:if test="${request.worksID == works.worksID}">
+                                        <c:out value="${works.name}"/>
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                            <td class="dataTable">
+                                <c:out value="${request.requestedTime}"/>        
+                            </td>
+                            <td class="dataTable">
+                                <c:forEach var="dispatcher" items="${clientDispatcherList}">
+                                    <c:if test="${request.dispatcherID == dispatcher.dispatcherID}">
+                                        <c:out value="${dispatcher.name}"/>
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+            </div> 
+
+
+
+        </body>
+    </html>
+
+
+
+</jsp:root>

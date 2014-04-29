@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : commitRequest
+    Created on : Apr 16, 2014, 12:32:13 AM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title>Well done!</title>
+        </head>
+        <body>
+            <c:set var="thisPage" value="wellDone"/>
+            
+            <jsp:directive.include file="/jspf/clientHeader.jspf"/>
+            
+            <div class="topMessage">
+                <fmt:message key="MESSAGE_WELL_DONE" var="done"/>
+                <c:out value="${done}!" />
+            </div>
+
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+
+        </body>
+    </html>
+
+</jsp:root>

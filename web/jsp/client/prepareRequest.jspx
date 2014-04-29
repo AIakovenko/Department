@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : prepareRequest
+    Created on : Apr 13, 2014, 12:00:31 PM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${client.login} - Prepare Request"/></title>
+
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/clientHeader.jspf" />
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+
+            <div id="clientSetNewRequest">
+                <fmt:message key="BUTTON_ACCEPT" var="accept"/>
+                <d:form_submit commandValue="sendRequest" buttonName="${accept}"> 
+
+                    <fmt:message key="MESSAGE_CHOOSE_ADDRESS" var="chooseAddress"/>
+                    <c:out value="${chooseAddress}: " /> 
+                    <br/><br/>
+
+                    <select name="flatID">
+                        <c:forEach var="flat" items="${flatList}">
+                            <option value="${flat.flatID}">
+                                <c:out value="${flat.address}, ${flat.building} кв.${flat.apartment}"/>
+                            </option>
+                        </c:forEach>
+                    </select>
+                    <br/><br/>
+
+                    <fmt:message key="MESSAGE_ENTER_DATE" var="enterDate"/>
+                    <c:out value="${enterDate}:"/><br/><br/>
+                    <input type = "date" name = "date" value="" />
+                    <br/><br/>
+
+                    <fmt:message key="MESSAGE_CHOOSE_WORK" var="chooseWork"/>
+                    <c:out value="${chooseWork}:" /><br/>
+                    <select name="worksID">
+                        <c:forEach var="works" items="${worksList}">
+                            <option value="${works.worksID}">${works.name} - ${works.description}</option>
+                        </c:forEach>
+                    </select>
+                    <br/><br/>
+
+                </d:form_submit>
+            </div>
+        </body>
+    </html>
+
+</jsp:root>

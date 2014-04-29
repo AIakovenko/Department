@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : makeRequest
+    Created on : Apr 13, 2014, 2:16:10 PM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${client.login} - Send Request"/></title>
+        </head>
+        <body>
+            
+            <jsp:directive.include file="/jspf/clientHeader.jspf"/>
+            
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+            
+            <div id="clientRequest">
+                <fmt:message key="MESSAGE_ENTERED_DATA" var="enteredData"/>
+                <c:out value="${enteredData}:"/><br/><br/>
+                <table class="dataTable">
+                    <fmt:message key="TABLE_ADDRESS" var="tableAddress"/>
+                    <th class="dataTable"><c:out value="${tableAddress}"/></th>
+                        <fmt:message key="TABLE_WORK" var="tableWork"/>
+                    <th class="dataTable"><c:out value="${tableWork}"/></th>
+                        <fmt:message key="TABLE_DATE" var="tableDate"/>
+                    <th class="dataTable"><c:out value="${tableDate}"/></th>
+
+                    <tr>
+                        <td class="dataTable">
+                            <c:out value="${flat.address}, ${flat.building} кв.${flat.apartment}"/>
+                        </td>
+                        <td class="dataTable"><c:out value="${works.name}"/></td>
+                        <td class="dataTable"><c:out value="${date}"/></td>
+                    </tr>
+                </table>
+                <fmt:message key="BUTTON_COMMIT" var="commit"/>
+                <d:form_submit commandValue="commitRequest" buttonName="${commit}"/>
+            </div>
+            
+        </body>
+    </html>
+
+
+</jsp:root>

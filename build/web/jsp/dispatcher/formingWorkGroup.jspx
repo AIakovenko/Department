@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : formingWorkGroup
+    Created on : Apr 15, 2014, 11:37:01 AM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${disp.login} - Forming workgroup "/></title>
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/dispatcherHeader.jspf"/>
+
+            <div class="goMenu" align="right">
+                <fmt:message key="BUTTON_GO_MENU" var="goMenu"/>
+                <d:form_submit commandValue="goMenu" buttonName="${goMenu}"/>
+            </div>
+            
+            <div id="tableWorksType">
+                <table name="worksType" class="dataTable">
+                    <fmt:message key="TABLE_NUMBER" var="number"/>
+                    <th class="dataTable"><c:out value="${number}"/></th>
+                        <fmt:message key="TABLE_TITLE" var="title"/>
+                    <th class="dataTable"><c:out value="${title}"/></th>
+                        <fmt:message key="TABLE_DESCRIPTION" var="description"/>
+                    <th class="dataTable"><c:out value="${description}"/></th>
+                    <tr>
+                        <td class="dataTable"><c:out value="${works.worksID}"/></td>
+                        <td class="dataTable"><c:out value="${works.name}"/></td>
+                        <td class="dataTable"><c:out value="${works.description}"/></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="tableChooseWorkers">
+                <fmt:message key="BUTTON_COMMIT" var="commit"/>
+                <d:form_submit commandValue="commitWorkGroup" buttonName="${commit}">
+                    <table name="workers" class="dataTable">
+                        <th class="dataTable"></th>
+                            <fmt:message key="TABLE_NUMBER" var="numberW"/>
+                        <th class="dataTable"><c:out value="${numberW}"/></th>
+                            <fmt:message key="TABLE_NAME" var="name"/>
+                        <th class="dataTable"><c:out value="${name}"/></th>
+                            <fmt:message key="TABLE_SPECIALIZATION" var="specialization"/>
+                        <th class="dataTable"><c:out value="${specialization}"/></th>
+
+                        <c:forEach var="worker" items="${workerList}">
+                            <tr>
+                                <td class="dataTable"><input type="checkbox" name="selectedWorkers" 
+                                                             value="${worker.workerID}"/></td>
+                                <td class="dataTable"><c:out value="${worker.workerID}"/></td>
+                                <td class="dataTable"><c:out value="${worker.name}"/></td>
+                                <td class="dataTable"><c:out value="${worker.specialization}"/></td>
+                            </tr>
+                        </c:forEach>
+                    </table> 
+                </d:form_submit>
+            </div>
+        </body>
+
+    </html>
+
+
+</jsp:root>

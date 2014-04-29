@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : mainClient
+    Created on : Apr 11, 2014, 10:08:35 AM
+    Author     : alex
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:d="/WEB-INF/departmentTags"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+            <title><c:out value="${client.login}"/></title>
+        </head>
+        <body>
+            <jsp:directive.include file="/jspf/clientHeader.jspf" />  
+
+            <div class="menuButtons">
+                <fmt:message key="BUTTON_PEPARE_REQUEST" var="prepareRequest"/>
+                <form  method="POST" action="department">               
+                    <input type="hidden" name="command" value="prepareRequest"/>
+                    <input type="submit" style="width: 150px" value="${prepareRequest}"/>    
+                </form>
+
+                <fmt:message key="BUTTON_OWN_REQUESTS" var="ownRequests"/>
+                <form  method="POST" action="department">               
+                    <input type="hidden" name="command" value="showOwnRequests"/>
+                    <input type="submit" style="width: 150px" value="${ownRequests}"/>    
+                </form>
+            </div>
+
+        </body>
+    </html>
+
+
+
+
+
+</jsp:root>
