@@ -3,34 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/registrationCommit.jsp</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/client/mainClient.jspx</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/CommandFactory.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/web/WEB-INF/web.xml</file>
             <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/enter.jsp</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/filters/FieldNumberFormatFilter.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/LogOutCommand.java</file>
             <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/filters/AliveSessionFilter.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/manager/pages.properties</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/index.jspx</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/RegistrationCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/log4j.properties</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/manager/database.properties</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/login.jsp</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/manager/ConfigurationManager.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/META-INF/context.xml</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/WellDoneCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jspf/clientHeader.jspf</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/LoginCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/manager/ConnectionPool.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/confirmRegistration.jsp</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/RegistrationFormCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jspf/dispatcherHeader.jspf</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/NoCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/RegistrationCommitCommand.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/manager/PageManager.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/tags/FormSubmitTag.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/filters/FieldEncodingFormatFilter.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/tags/RequestTableTag.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/dao/entity/Groups.java</file>
             <file>file:/home/alex/Dropbox/Bionic/web/department/web/jspf/header.jspf</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/servlet/DepartmentServlet.java</file>
             <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/filters/LocaleFilter.java</file>
             <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/tags/ErrorTag.java</file>
-            <file>file:/home/alex/Dropbox/Bionic/web/department/web/jsp/registration.jsp</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/WellDoneCommand.java</file>
+            <file>file:/home/alex/Dropbox/Bionic/web/department/src/java/com/bionic/iakovenko/department/commands/LoginCommand.java</file>
         </group>
     </open-files>
 </project-private>
